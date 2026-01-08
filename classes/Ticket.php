@@ -119,5 +119,38 @@ class Ticket {
         $result = $stmt->get_result();
         return $result->fetch_assoc();
     }
+
+    public function deleteTicket($id) {
+        $stmt = $this->db->prepare("DELETE FROM tickets WHERE id = ?");
+        $stmt->bind_param("i", $id);
+        
+        if ($stmt->execute()) {
+            return ['success' => true, 'message' => 'Ticket deleted successfully'];
+        } else {
+            return ['success' => false, 'message' => 'Failed to delete ticket'];
+        }
+    }
+
+    public function updateTicket($data) {
+        $stmt = $this->db->prepare(
+            "UPDATE tickets SET title = ?, description = ?, status = ?, priority = ?, updated_at = NOW() 
+             WHERE id = ?"
+        );
+
+        $stmt->bind_param(
+            "ssssi",
+            $data['title'],
+            $data['description'],
+            $data['status'],
+            $data['priority'],
+            $data['id']
+        );
+
+        if ($stmt->execute()) {
+            return ['success' => true, 'message' => 'Ticket updated successfully'];
+        } else {
+            return ['success' => false, 'message' => 'Failed to update ticket'];
+        }
+    }
 }
 ?>

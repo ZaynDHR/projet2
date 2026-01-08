@@ -19,8 +19,8 @@ class User {
             return ['success' => false, 'message' => 'Email already registered'];
         }
 
-        // Store password as plain text for now
-        $hashedPassword = $password;
+        // Hash password
+        $hashedPassword = password_hash($password, PASSWORD_BCRYPT);
 
         // Insert user
         $stmt = $this->db->prepare("INSERT INTO users (name, email, password, created_at) VALUES (?, ?, ?, NOW())");
@@ -45,8 +45,8 @@ class User {
 
         $user = $result->fetch_assoc();
         
-        // Simple plain text password comparison
-        if ($password !== $user['password']) {
+        // Verify hashed password
+        if (!password_verify($password, $user['password'])) {
             return ['success' => false, 'message' => 'Invalid email or password'];
         }
 

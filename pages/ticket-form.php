@@ -132,9 +132,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                     <div class="form-group">
                                         <label for="category">Category</label>
                                         <select id="category" name="category" required>
-                                            <option value="bug" <?php echo (($_POST['category'] ?? 'bug') === 'bug') ? 'selected' : ''; ?>>Bug</option>
-                                            <option value="feature" <?php echo (($_POST['category'] ?? '') === 'feature') ? 'selected' : ''; ?>>Feature Request</option>
-                                            <option value="improvement" <?php echo (($_POST['category'] ?? '') === 'improvement') ? 'selected' : ''; ?>>Improvement</option>
+                                            <option value="frontend" <?php echo (($_POST['category'] ?? '') === 'frontend') ? 'selected' : ''; ?>>Front-end</option>
+                                            <option value="backend" <?php echo (($_POST['category'] ?? '') === 'backend') ? 'selected' : ''; ?>>Back-end</option>
+                                            <option value="infrastructure" <?php echo (($_POST['category'] ?? '') === 'infrastructure') ? 'selected' : ''; ?>>Infrastructure</option>
                                         </select>
                                         <span class="form-hint">Classify the type of issue.</span>
                                     </div>

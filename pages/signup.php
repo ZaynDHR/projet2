@@ -18,27 +18,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $confirmPassword = $_POST['confirm_password'] ?? '';
 
     // Validation
-    if (empty($fullName) || empty($email) || empty($password) || empty($confirmPassword)) {
+    if (empty($fullName) || empty($email)) {
         $error = 'Please fill in all fields';
     } elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
         $error = 'Invalid email format';
-    } elseif (strlen($password) < 8) {
-        $error = 'Password must be at least 8 characters';
-    } elseif (!preg_match('/[A-Z]/', $password)) {
-        $error = 'Password must include at least one uppercase letter';
-    } elseif (!preg_match('/[a-z]/', $password)) {
-        $error = 'Password must include at least one lowercase letter';
-    } elseif (!preg_match('/[0-9]/', $password)) {
-        $error = 'Password must include at least one number';
-    } elseif ($password !== $confirmPassword) {
-        $error = 'Passwords do not match';
     } else {
         $user = new User();
         $result = $user->register($fullName, $email, $password);
 
         if ($result['success']) {
             $success = 'Registration successful! Redirecting to login...';
-            header('refresh:2;url=index.php');
+            header('refresh:2;url=../index.php');
         } else {
             $error = $result['message'];
         }

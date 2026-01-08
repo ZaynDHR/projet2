@@ -1,5 +1,4 @@
 /* Dashboard Page Styles - Updated Version */
-
 * {
   margin: 0;
   padding: 0;
@@ -8,8 +7,8 @@
 
 body {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-  background: #ffffff;
-  color: #000000;
+  background: #000000;
+  color: #ffffff;
   min-height: 100vh;
   overflow-y: scroll;
   scrollbar-width: none;
@@ -31,7 +30,7 @@ body::-webkit-scrollbar {
 
 /* Header */
 .dashboard-header {
-  background: #48E5C2;
+  background: #ffffff;
   border-bottom: 1px solid #e8ecef;
   padding: 20px 32px;
   display: flex;
@@ -40,6 +39,8 @@ body::-webkit-scrollbar {
   position: sticky;
   top: 0;
   z-index: 50;
+  border-radius: 16px 16px 16px 16px;
+  margin: 12px 12px 0 12px;
 }
 
 .header-logo {
@@ -77,7 +78,7 @@ body::-webkit-scrollbar {
   height: 44px;
   border-radius: 8px;
   border: none;
-  background: #48E5C2;
+  background: transparent;
   cursor: pointer;
   display: flex;
   align-items: center;
@@ -90,7 +91,7 @@ body::-webkit-scrollbar {
 }
 
 .icon-button:hover {
-  background: #3dd4b1;
+  background: #f5f5f5;
 }
 
 /* Dashboard Container */
@@ -109,12 +110,12 @@ body::-webkit-scrollbar {
 .dashboard-title-row h1 {
   font-size: 32px;
   font-weight: 700;
-  color: #000000;
+  color: #ffffff;
 }
 
 .create-ticket-button {
   padding: 10px 16px;
-  background: #ffffff;
+  background: #48E5C2;
   color: #000000;
   border: none;
   border-radius: 8px;
@@ -129,7 +130,7 @@ body::-webkit-scrollbar {
 }
 
 .create-ticket-button:hover {
-  background: #f5f5f5;
+  background: #3dd4b1;
   transform: translateY(-1px);
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
@@ -144,11 +145,11 @@ body::-webkit-scrollbar {
 
 /* Cards */
 .card {
-  background: white;
+  background: #1a1a1a;
   border-radius: 12px;
   padding: 24px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
-  border: 1px solid #FCFAF9;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  border: 1px solid #333333;
 }
 
 .card-header {
@@ -158,7 +159,7 @@ body::-webkit-scrollbar {
 .card-header h3 {
   font-size: 18px;
   font-weight: 600;
-  color: #000000;
+  color: #ffffff;
 }
 
 /* Recent Activity */
@@ -198,19 +199,19 @@ body::-webkit-scrollbar {
 
 .activity-text {
   font-size: 14px;
-  color: #333;
+  color: #cccccc;
   line-height: 1.5;
   margin-bottom: 4px;
 }
 
 .activity-text strong {
   font-weight: 600;
-  color: #000000;
+  color: #ffffff;
 }
 
 .activity-meta {
   font-size: 13px;
-  color: #666;
+  color: #999999;
 }
 
 /* Stats Grid */
@@ -223,11 +224,11 @@ body::-webkit-scrollbar {
 }
 
 .stat-card {
-  background: white;
+  background: #1a1a1a;
   border-radius: 12px;
   padding: 24px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
-  border: 1px solid #FCFAF9;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  border: 1px solid #333333;
 }
 
 .stat-header {
@@ -240,13 +241,13 @@ body::-webkit-scrollbar {
 .stat-title {
   font-size: 16px;
   font-weight: 600;
-  color: #000000;
+  color: #ffffff;
   margin-bottom: 4px;
 }
 
 .stat-subtitle {
   font-size: 13px;
-  color: #666;
+  color: #999999;
 }
 
 /* Chart Container */
@@ -268,7 +269,7 @@ body::-webkit-scrollbar {
 .chart-number {
   font-size: 48px;
   font-weight: 700;
-  color: #000000;
+  color: #ffffff;
 }
 
 .chart-number.open {
@@ -287,7 +288,7 @@ body::-webkit-scrollbar {
   align-items: center;
   gap: 8px;
   font-size: 13px;
-  color: #666;
+  color: #999999;
 }
 
 .legend-dot {
@@ -305,7 +306,7 @@ body::-webkit-scrollbar {
   font-size: 16px;
   font-weight: 600;
   margin-bottom: 16px;
-  color: #1a1a1a;
+  color: #ffffff;
 }
 
 .filter-buttons {
@@ -316,13 +317,13 @@ body::-webkit-scrollbar {
 
 .filter-button {
   padding: 8px 16px;
-  border: 1px solid #FCFAF9;
-  background: white;
+  border: 1px solid #444444;
+  background: #262626;
   border-radius: 8px;
   font-size: 14px;
   cursor: pointer;
   transition: all 0.2s ease;
-  color: #666;
+  color: #999999;
   font-weight: 500;
 }
 
@@ -333,20 +334,21 @@ body::-webkit-scrollbar {
 
 .filter-button.active {
   background: #48E5C2;
-  color: white;
+  color: #000000;
   border-color: #48E5C2;
 }
 
 /* Active Tickets Section */
 .tickets-section {
   margin-bottom: 24px;
+  margin-top: 20px;
 }
 
 .tickets-section h3 {
   font-size: 18px;
   font-weight: 600;
   margin-bottom: 16px;
-  color: #000000;
+  color: #ffffff;
 }
 
 .tickets-list {
@@ -357,9 +359,9 @@ body::-webkit-scrollbar {
 
 .ticket-item {
   padding: 12px 16px;
-  border: 1px solid #FCFAF9;
+  border: 1px solid #333333;
   border-radius: 10px;
-  background: white;
+  background: #262626;
   transition: all 0.2s ease;
   cursor: pointer;
 }
@@ -380,7 +382,7 @@ body::-webkit-scrollbar {
 .ticket-title {
   font-size: 14px;
   font-weight: 600;
-  color: #000000;
+  color: #ffffff;
   flex: 1;
   margin-right: 12px;
 }
@@ -452,120 +454,7 @@ body::-webkit-scrollbar {
 
 .ticket-id {
   font-size: 13px;
-  color: #666;
-}
-
-/* Ticket Detail Panel (Right Side) */
-.ticket-detail-panel {
-  background: white;
-  border-radius: 12px;
-  padding: 24px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
-  border: 1px solid #e8ecef;
-  position: sticky;
-  top: 100px;
-}
-
-.detail-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  margin-bottom: 16px;
-  padding-bottom: 16px;
-  border-bottom: 1px solid #e8ecef;
-}
-
-.detail-title-section h2 {
-  font-size: 20px;
-  font-weight: 700;
-  color: #1a1a1a;
-  margin-bottom: 8px;
-}
-
-.detail-badges {
-  display: flex;
-  gap: 8px;
-  margin-bottom: 12px;
-}
-
-.detail-actions {
-  display: flex;
-  gap: 8px;
-}
-
-.action-button {
-  width: 36px;
-  height: 36px;
-  border-radius: 8px;
-  border: 1px solid #e0e0e0;
-  background: white;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: all 0.2s ease;
-  font-size: 16px;
-  color: #666;
-}
-
-.action-button:hover {
-  background: #f5f7fa;
-  border-color: #5dd9c1;
-}
-
-.action-button.delete:hover {
-  background: #ffe8e8;
-  border-color: #f44336;
-  color: #f44336;
-}
-
-.detail-content {
-  margin-bottom: 24px;
-}
-
-.detail-section {
-  margin-bottom: 20px;
-}
-
-.detail-section-title {
-  font-size: 12px;
-  font-weight: 600;
-  color: #999;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  margin-bottom: 8px;
-}
-
-.detail-text {
-  font-size: 14px;
-  color: #333;
-  line-height: 1.6;
-}
-
-.detail-meta {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 16px;
-}
-
-.meta-item {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-}
-
-.meta-label {
-  font-size: 12px;
-  font-weight: 600;
-  color: #999;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-}
-
-.meta-value {
-  font-size: 14px;
-  color: #1a1a1a;
-  font-weight: 500;
+  color: #999999;
 }
 
 /* Three Column Layout */
@@ -584,7 +473,7 @@ body::-webkit-scrollbar {
   width: 100%;
   height: 100%;
   background: rgba(0, 0, 0, 0.5);
-  display: flex;
+  display: none;
   align-items: center;
   justify-content: flex-end;
   opacity: 0;
@@ -593,17 +482,41 @@ body::-webkit-scrollbar {
   z-index: 1000;
 }
 
+.ticket-detail-overlay[style*="display: flex"] {
+  display: flex !important;
+  opacity: 1;
+  visibility: visible;
+}
+
+#editTicketModal {
+  display: none !important;
+  justify-content: center;
+  align-items: center;
+}
+
+#editTicketModal[style*="display: flex"] {
+  display: flex !important;
+  opacity: 1;
+  visibility: visible;
+}
+
+#editTicketModal .ticket-detail-panel {
+  position: relative;
+  top: auto;
+  width: auto;
+}
+
 .ticket-detail-overlay.active {
   opacity: 1;
   visibility: visible;
 }
 
 .ticket-detail-panel {
-  background: white;
+  background: #1a1a1a;
   width: 400px;
   max-height: 90vh;
   overflow-y: auto;
-  box-shadow: -4px 0 16px rgba(0, 0, 0, 0.15);
+  box-shadow: -4px 0 16px rgba(0, 0, 0, 0.5);
   padding: 32px;
   position: relative;
 }
@@ -620,7 +533,7 @@ body::-webkit-scrollbar {
 .detail-title-section h2 {
   font-size: 20px;
   font-weight: 700;
-  color: #000000;
+  color: #ffffff;
   margin-bottom: 12px;
 }
 
@@ -639,19 +552,19 @@ body::-webkit-scrollbar {
   width: 36px;
   height: 36px;
   border-radius: 8px;
-  border: 1px solid #e0e0e0;
-  background: white;
+  border: 1px solid #444444;
+  background: #262626;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
   transition: all 0.2s ease;
   font-size: 16px;
-  color: #666;
+  color: #999999;
 }
 
 .action-button:hover {
-  background: #f5f7fa;
+  background: #333333;
   border-color: #5dd9c1;
 }
 
@@ -672,7 +585,7 @@ body::-webkit-scrollbar {
 .detail-section-title {
   font-size: 12px;
   font-weight: 600;
-  color: #999;
+  color: #666666;
   text-transform: uppercase;
   letter-spacing: 0.5px;
   margin-bottom: 8px;
@@ -680,7 +593,7 @@ body::-webkit-scrollbar {
 
 .detail-text {
   font-size: 14px;
-  color: #333;
+  color: #cccccc;
   line-height: 1.6;
 }
 
@@ -699,14 +612,14 @@ body::-webkit-scrollbar {
 .meta-label {
   font-size: 12px;
   font-weight: 600;
-  color: #999;
+  color: #666666;
   text-transform: uppercase;
   letter-spacing: 0.5px;
 }
 
 .meta-value {
   font-size: 14px;
-  color: #1a1a1a;
+  color: #ffffff;
   font-weight: 500;
 }
 
@@ -720,12 +633,62 @@ body::-webkit-scrollbar {
   background: transparent;
   cursor: pointer;
   font-size: 20px;
-  color: #999;
+  color: #666666;
   transition: color 0.2s;
 }
 
 .close-panel-button:hover {
-  color: #1a1a1a;
+  color: #ffffff;
+}
+
+/* Form Styles */
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: #ffffff;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #444444;
+  border-radius: 6px;
+  font-size: 14px;
+  font-family: inherit;
+  transition: all 0.2s ease;
+  background: #262626;
+  color: #ffffff;
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+  outline: none;
+  border-color: #48E5C2;
+  box-shadow: 0 0 0 3px rgba(72, 229, 194, 0.1);
+}
+
+.save-button {
+  background: #48E5C2;
+  color: #000000;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.save-button:hover {
+  background: #3dd4b1;
 }
 
 /* Ticket Description Card */
@@ -741,20 +704,6 @@ body::-webkit-scrollbar {
   align-items: center;
   padding: 8px 0;
   border-bottom: 1px solid #f0f0f0;
-}
-
-.meta-label {
-  font-size: 12px;
-  font-weight: 600;
-  color: #999;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-}
-
-.meta-value {
-  font-size: 13px;
-  font-weight: 600;
-  color: #1a1a1a;
 }
 
 /* Responsive Design */

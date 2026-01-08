@@ -97,10 +97,105 @@ function closeTicketDetail() {
     document.body.style.overflow = '';
 }
 
+function deleteTicket(ticketId) {
+    if (confirm('Are you sure you want to delete this ticket?')) {
+        fetch('delete-ticket.php?id=' + ticketId, {
+            method: 'POST'
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                alert('Ticket deleted successfully');
+                closeTicketDetail();
+                location.reload();
+            } else {
+                alert('Error deleting ticket');
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            alert('Error deleting ticket');
+        });
+    }
+}
+
+function editTicket(ticketId) {
+    const ticket = ticketsData.find(t => t.id == ticketId);
+    if (!ticket) return;
+    
+    // Populate form
+    document.getElementById('editTitle').value = ticket.title;
+    document.getElementById('editDescription').value = ticket.description;
+    document.getElementById('editStatus').value = ticket.status;
+    document.getElementById('editPriority').value = ticket.priority;
+    
+    // Store ticket ID for form submission
+    document.getElementById('editTicketForm').dataset.ticketId = ticketId;
+    
+    // Show modal
+    document.getElementById('editTicketModal').style.display = 'flex';
+}
+
+function closeEditModal() {
+    document.getElementById('editTicketModal').style.display = 'none';
+}
+
+// Handle edit form submission
+document.addEventListener('DOMContentLoaded', function() {
+    const editForm = document.getElementById('editTicketForm');
+    if (editForm) {
+        editForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const ticketId = this.dataset.ticketId;
+            const formData = new FormData();
+            formData.append('id', ticketId);
+            formData.append('title', document.getElementById('editTitle').value);
+            formData.append('description', document.getElementById('editDescription').value);
+            formData.append('status', document.getElementById('editStatus').value);
+            formData.append('priority', document.getElementById('editPriority').value);
+            
+            fetch('update-ticket.php', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    alert('Ticket updated successfully');
+                    closeEditModal();
+                    location.reload();
+                } else {
+                    alert('Error updating ticket');
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('Error updating ticket');
+            });
+        });
+    }
+});
+
 // Close on overlay background click
-document.getElementById('ticketDetailOverlay').addEventListener('click', function(e) {
-    if (e.target === this) {
-        closeTicketDetail();
+document.addEventListener('DOMContentLoaded', function() {
+    const ticketDetailOverlay = document.getElementById('ticketDetailOverlay');
+    const editTicketModal = document.getElementById('editTicketModal');
+    
+    if (ticketDetailOverlay) {
+        ticketDetailOverlay.addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeTicketDetail();
+            }
+        });
+    }
+    
+    if (editTicketModal) {
+        editTicketModal.addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeEditModal();
+            }
+        });
     }
 });
 

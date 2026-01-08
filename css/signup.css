@@ -8,8 +8,8 @@
 
 body {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-  background: #ffffff;
-  color: #000000;
+  background: #000000;
+  color: #ffffff;
   min-height: 100vh;
 }
 
@@ -21,12 +21,13 @@ body {
 /* Left Panel - Features */
 .features-panel {
   width: 340px;
-  background: #48E5C2;
+  background: #ffffff;
   padding: 48px 32px;
   border-right: 1px solid #e8ecef;
   position: fixed;
   height: 100vh;
   overflow-y: auto;
+  border-radius: 25px 25px 25px 25px;
 }
 
 .logo-section {
@@ -51,14 +52,14 @@ body {
 .logo-text {
   font-size: 24px;
   font-weight: 700;
-  color: #000000;
+  color: #1a1a1a;
 }
 
 .features-section h3 {
   font-size: 22px;
   font-weight: 700;
   margin-bottom: 32px;
-  color: #000000;
+  color: #1a1a1a;
 }
 
 .feature-item {
@@ -82,7 +83,7 @@ body {
   font-size: 16px;
   font-weight: 600;
   margin-bottom: 6px;
-  color: #000000;
+  color: #1a1a1a;
 }
 
 .feature-content p {
@@ -103,10 +104,10 @@ body {
 }
 
 .signup-card {
-  background: white;
+  background: #1a1a1a;
   padding: 48px;
   border-radius: 16px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.07), 0 10px 20px rgba(0, 0, 0, 0.06);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5), 0 10px 20px rgba(0, 0, 0, 0.5);
   width: 100%;
   max-width: 540px;
 }
@@ -120,12 +121,12 @@ body {
   font-size: 32px;
   font-weight: 700;
   margin-bottom: 12px;
-  color: #333333;
+  color: #ffffff;
 }
 
 .signup-header p {
   font-size: 15px;
-  color: #666;
+  color: #999999;
   line-height: 1.6;
 }
 
@@ -137,9 +138,9 @@ body {
   font-size: 18px;
   font-weight: 600;
   margin-bottom: 20px;
-  color: #333333;
+  color: #ffffff;
   padding-bottom: 12px;
-  border-bottom: 1px solid #f0f0f0;
+  border-bottom: 1px solid #333333;
 }
 
 .form-group {
@@ -151,19 +152,19 @@ body {
   font-size: 14px;
   font-weight: 600;
   margin-bottom: 8px;
-  color: #333333;
+  color: #ffffff;
 }
 
 .form-group input {
   width: 100%;
   padding: 12px 16px;
   padding-left: 44px;
-  border: 1px solid #e0e0e0;
+  border: 1px solid #444444;
   border-radius: 8px;
   font-size: 15px;
   transition: all 0.2s ease;
-  background: #FCFAF9;
-  color: #333333;
+  background: #262626;
+  color: #ffffff;
 }
 
 .input-wrapper {
@@ -175,19 +176,19 @@ body {
   left: 14px;
   top: 50%;
   transform: translateY(-50%);
-  color: #999;
+  color: #666666;
   font-size: 18px;
   pointer-events: none;
 }
 
 .form-group input::placeholder {
-  color: #999;
+  color: #666666;
 }
 
 .form-group input:focus {
   outline: none;
   border-color: #48E5C2;
-  background: white;
+  background: #333333;
   box-shadow: 0 0 0 3px rgba(72, 229, 194, 0.1);
 }
 
@@ -199,7 +200,7 @@ body {
 .strength-bar {
   width: 100%;
   height: 4px;
-  background: #e0e0e0;
+  background: #444444;
   border-radius: 2px;
   overflow: hidden;
   margin-bottom: 12px;
@@ -223,14 +224,14 @@ body {
   align-items: center;
   gap: 6px;
   font-size: 12px;
-  color: #666;
+  color: #999999;
 }
 
 .requirement-icon {
   width: 16px;
   height: 16px;
   border-radius: 50%;
-  border: 1.5px solid #d0d0d0;
+  border: 1.5px solid #555555;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -256,8 +257,8 @@ body {
 .register-button {
   width: 100%;
   padding: 15px;
-  background: white;
-  color: #48E5C2;
+  background: #48E5C2;
+  color: #000000;
   border: 2px solid #48E5C2;
   border-radius: 8px;
   font-size: 16px;
@@ -269,8 +270,8 @@ body {
 }
 
 .register-button:hover {
-  background: #48E5C2;
-  color: white;
+  background: #3dd4b1;
+  color: #000000;
   transform: translateY(-1px);
   box-shadow: 0 4px 12px rgba(72, 229, 194, 0.3);
 }
@@ -283,7 +284,7 @@ body {
   text-align: center;
   margin-top: 24px;
   font-size: 15px;
-  color: #666;
+  color: #999999;
 }
 
 .login-link a {

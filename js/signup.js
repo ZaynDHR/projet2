@@ -84,29 +84,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 return false;
             }
 
-            if (password.length < 8) {
-                e.preventDefault();
-                alert('Password must be at least 8 characters');
-                return false;
-            }
 
-            if (!/[A-Z]/.test(password)) {
-                e.preventDefault();
-                alert('Password must include at least one uppercase letter');
-                return false;
-            }
-
-            if (!/[a-z]/.test(password)) {
-                e.preventDefault();
-                alert('Password must include at least one lowercase letter');
-                return false;
-            }
-
-            if (!/[0-9]/.test(password)) {
-                e.preventDefault();
-                alert('Password must include at least one number');
-                return false;
-            }
         });
     }
 });

@@ -75,8 +75,12 @@ $inProgressPercentage = $totalTickets > 0 ? ($inProgressTickets / $totalTickets)
 
                         <!-- Selected Ticket Description -->
                         <div class="card" id="selectedTicketCard" style="display: none;">
-                            <div class="card-header">
-                                <h3 id="selectedTicketTitle">Select a Ticket</h3>
+                            <div class="card-header" style="display: flex; justify-content: space-between; align-items: center;">
+                                <h3 id="selectedTicketTitle" style="margin: 0;">Select a Ticket</h3>
+                                <div class="detail-actions">
+                                    <button class="action-button" title="Edit" id="editButtonLeft">✎</button>
+                                    <button class="action-button delete" title="Delete" id="deleteButtonLeft">✕</button>
+                                </div>
                             </div>
                             <div class="ticket-description">
                                 <div class="description-meta">
@@ -177,9 +181,9 @@ $inProgressPercentage = $totalTickets > 0 ? ($inProgressTickets / $totalTickets)
                             <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;">
                                 <h3 style="margin: 0;">Active Tickets</h3>
                                 <a href="ticket-form.php" class="create-ticket-button">
-                                    <span>➕</span>
-                                    Create Ticket
-                                </a>
+                                     <span style="color: #000000; font-weight: bold;">+</span>
+                                     Create Ticket
+                                 </a>
                             </div>
                             <div class="tickets-list">
                                 <?php if (empty($activeTickets)): ?>
@@ -206,6 +210,46 @@ $inProgressPercentage = $totalTickets > 0 ? ($inProgressTickets / $totalTickets)
                         </div>
                     </div>
                 </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Edit Ticket Modal -->
+    <div class="ticket-detail-overlay" id="editTicketModal" style="display: none;">
+        <div class="ticket-detail-panel" style="width: 500px; position: relative;">
+            <button class="close-panel-button" onclick="closeEditModal()">✕</button>
+            <div class="detail-header">
+                <h2>Edit Ticket</h2>
+            </div>
+            <div class="detail-content">
+                <form id="editTicketForm">
+                    <div class="form-group">
+                        <label for="editTitle">Title</label>
+                        <input type="text" id="editTitle" name="title" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="editDescription">Description</label>
+                        <textarea id="editDescription" name="description" required style="min-height: 100px;"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="editStatus">Status</label>
+                        <select id="editStatus" name="status" required>
+                            <option value="open">Open</option>
+                            <option value="in_progress">In Progress</option>
+                            <option value="closed">Closed</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="editPriority">Priority</label>
+                        <select id="editPriority" name="priority" required>
+                            <option value="low">Low</option>
+                            <option value="medium">Medium</option>
+                            <option value="high">High</option>
+                            <option value="critical">Critical</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="save-button" style="width: 100%; margin-top: 20px;">Save Changes</button>
+                </form>
             </div>
         </div>
     </div>
@@ -249,5 +293,21 @@ $inProgressPercentage = $totalTickets > 0 ? ($inProgressTickets / $totalTickets)
         const ticketsData = <?php echo json_encode($activeTickets); ?>;
     </script>
     <script src="../js/dashboard.js"></script>
+    <script>
+        let currentTicketId = null;
+        
+        // Store ticket ID when showing detail
+        const originalShowTicketDetail = showTicketDetail;
+        showTicketDetail = function(ticketId) {
+            currentTicketId = ticketId;
+            originalShowTicketDetail(ticketId);
+            document.getElementById('deleteButtonLeft').onclick = function() {
+                deleteTicket(currentTicketId);
+            };
+            document.getElementById('editButtonLeft').onclick = function() {
+                editTicket(currentTicketId);
+            };
+        };
+    </script>
 </body>
 </html>
